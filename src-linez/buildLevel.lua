@@ -68,9 +68,15 @@ function class.buildHeader( starData )
 	menuButton.anchorX = 0
 	menuButton.anchorY = 0
 
+	local resetButton = display.newImage( "images/game/reset.png", display.screenOriginX + 100, display.screenOriginY + 20 )
+	resetButton.anchorX = 0
+	resetButton.anchorY = 0
+
 	local playButton = display.newImage( "images/game/play" .. imageColor .. ".png", display.contentWidth + ( display.screenOriginX * -1 ) - 30, display.screenOriginY + 20 )
 	playButton.anchorX = 1
 	playButton.anchorY = 0
+
+	
 
 	local bounceCounter = display.newText( bounceCountParameters )
 	bounceCounter.text = starData.count
@@ -91,15 +97,23 @@ function class.buildHeader( starData )
 	divider.y = playButton.y + playButton.height + 20
 	divider.fill = objectColor
 
-	local menuTouchArea = display.newRect( display.screenOriginX, display.screenOriginY, 90, 90 )
+	local menuTouchArea = display.newRect( display.screenOriginX, display.screenOriginY, 90, 80 )
 	menuTouchArea.anchorX = 0
 	menuTouchArea.anchorY = 0
 	menuTouchArea.alpha = 0
 	menuTouchArea.isHitTestable = true
 	menuTouchArea.id = "menuButton"
-	menuTouchArea:setFillColor( 255, 255, 255 )
+	menuTouchArea:setFillColor( 0, 0, 0 )
 
-	local playTouchArea = display.newRect( display.contentWidth + ( display.screenOriginX * -1 ), display.screenOriginY, 90, 90 )
+	local resetTouchArea = display.newRect( display.screenOriginX + 90, display.screenOriginY, 90, 80 )
+	resetTouchArea.anchorX = 0
+	resetTouchArea.anchorY = 0
+	resetTouchArea.alpha = 0
+	resetTouchArea.isHitTestable = true
+	resetTouchArea.id = "clearAllLinez"
+	resetTouchArea:setFillColor( 0, 0, 0 )
+
+	local playTouchArea = display.newRect( display.contentWidth + ( display.screenOriginX * -1 ), display.screenOriginY, 90, 80 )
 	playTouchArea.anchorX = 1
 	playTouchArea.anchorY = 0
 	playTouchArea.alpha = 0
@@ -107,7 +121,7 @@ function class.buildHeader( starData )
 	playTouchArea.id = "playButton"
 	playTouchArea:setFillColor( 255, 255, 255 )
 
-	local headerTable = { menuButton = menuButton, playButton = playButton, heaerCenter = heaerCenter, bounceCounter = bounceCounter, bounceCounterText = bounceCounterText, menuTouchArea = menuTouchArea, playTouchArea = playTouchArea, divider = divider }
+	local headerTable = { menuButton = menuButton, playButton = playButton, resetButton = resetButton, heaerCenter = heaerCenter, bounceCounter = bounceCounter, bounceCounterText = bounceCounterText, menuTouchArea = menuTouchArea, playTouchArea = playTouchArea, resetTouchArea = resetTouchArea, divider = divider }
 	return headerTable
 end
 

@@ -15,7 +15,7 @@ end
 
 if settings == nil then
 	gameData.totalLevels = 44
-	gameData.version = 1.3
+	gameData.version = 1.5
 	gameData.level = 1
 	gameData.timeStamp = os.date("!%c")
 	gameData.language = "EN"
@@ -152,5 +152,5 @@ local display_stage = display.getCurrentStage()
 display_stage:insert( base )
 display_stage:insert( composer.stage )
 
-composer.gotoScene("studio")
---composer.gotoScene("game")
+--composer.gotoScene("studio")
+composer.gotoScene("game")

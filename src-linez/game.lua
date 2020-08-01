@@ -275,6 +275,19 @@ function touchScreen(event)
 			event.target:removeEventListener("touch", touchScreen)
 			playSound("lineDelete")
 		end
+		if id == "clearAllLinez" then
+			for x = #lineTouchPoints, 1, -1 do
+				lineTouchPoints[x].icon:removeSelf()
+				lineTouchPoints[x].icon = nil
+				lineTouchPoints[x]:removeEventListener("touch", touchScreen)
+				lineTouchPoints[x]:removeSelf()
+				lineTouchPoints[x] = nil
+			end
+			for x = #lines, 1, -1 do
+				lines[x]:removeSelf()
+				lines[x] = nil
+			end
+		end
 	end
 	return true
 end
@@ -896,12 +909,15 @@ function scene:create(event)
 
 	headerObjects = buildLevel.buildHeader(starData)
 	headerObjects.menuTouchArea:addEventListener("touch", touchScreen)
+	headerObjects.resetTouchArea:addEventListener("touch", touchScreen)
 	headerObjects.playTouchArea:addEventListener("touch", touchScreen)
 	sceneGroup:insert(headerObjects.menuButton)
+	sceneGroup:insert(headerObjects.resetButton)
 	sceneGroup:insert(headerObjects.playButton)
 	sceneGroup:insert(headerObjects.bounceCounter)
 	sceneGroup:insert(headerObjects.bounceCounterText)
 	sceneGroup:insert(headerObjects.menuTouchArea)
+	sceneGroup:insert(headerObjects.resetTouchArea)
 	sceneGroup:insert(headerObjects.playTouchArea)
 	sceneGroup:insert(headerObjects.divider)
 
