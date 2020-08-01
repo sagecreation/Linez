@@ -1,0 +1,57 @@
+local data =
+{
+	{
+		{
+			data = "background", { file = "backgroundBlue" }
+		},
+		{
+			data = "stars", { count = 10 }
+		},
+		{
+			data = "tutorial",
+			{
+				language = "EN",
+				{
+					{ x = 0, y = 350, anchorX = 0, anchorY = 0, language = "EN", text = "Some levels have obstacles to work around", disapear = true },
+				}
+			}
+		},
+		{
+			data = "levelIndicator", { alpha = .1 }
+		},
+		{
+			data = "shapes",
+			{
+				{ type = "circle", x = display.contentCenterX, y = 100 },
+			}
+		},
+		{
+			data = "holes", 
+			{ 
+				{ type = "circle", x = display.contentCenterX, y = 700 },
+			}
+		},
+		{
+			data = "objects", 
+			{ 
+				{ 
+					type = "line", 
+					id = "",
+					width = 350,
+					x = display.contentCenterX, 
+					y = display.contentCenterY, 
+					anchorX = .5,
+					anchorY = .5,
+					rotation = 0, 
+					rotationSpeed = 0, 
+					bounce = 1.8, 
+					shape = nil, 
+					move = false, 
+					moveSpeed = 0, 
+					moveDirecton = nil
+				},
+			}
+		},
+	},
+}
+return data

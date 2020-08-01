@@ -1,0 +1,43 @@
+local data =
+{
+	{
+		{
+			data = "background", { file = "backgroundBlue" }
+		},
+		{
+			data = "stars", { count = 10 }
+		},
+		{
+			data = "tutorial",
+			{
+				{ x = 100, y = 180, anchorX = 0, anchorY = 0, language = "EN", text = "Get this shape", disapear = false },
+				{ x = 550, y = 575, anchorX = .5, anchorY = 1, language = "EN", text = "Into this shape" , disapear = false },
+				{ x = 15, y = 450, anchorX = 0, anchorY = .5, language = "EN", text = "By drawing lines" , disapear = false },
+				{ x = display.contentCenterX, y = 850, anchorX = .5, anchorY = .5, language = "EN", text = "Press play to start level" , disapear = false },
+				{ x = 340, y = 50, anchorX = 0, anchorY = 0, language = "EN", text = "This is maximum number of bounces to get a star" , disapear = false },
+			}
+		},
+		{
+			data = "levelIndicator", { alpha = .1 }
+		},
+		{
+			data = "shapes",
+			{
+				{ type = "circle", x = 125, y = 200 },
+			}
+		},
+		{
+			data = "holes", 
+			{ 
+				{ type = "circle", x = 550, y = 615 },
+			}
+		},
+		{
+			data = "objects", 
+			{ 
+
+			}
+		},
+	},
+}
+return data
