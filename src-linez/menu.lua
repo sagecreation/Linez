@@ -140,11 +140,13 @@ function scene:create( event )
 				gridObjects = createGridCell( rowX, rowY, "cell", cellID, rows, locked )
 				sceneGroup:insert( gridObjects.cell )
 				grid:insert( gridObjects.cell )
-				transition.to( gridObjects.cell, { alpha = .75, time = transitionTime} )
-				if gridObjects.cellText ~= nil then
-					sceneGroup:insert( gridObjects.cellText )
-					grid:insert( gridObjects.cellText )
-					transition.to( gridObjects.cellText, { alpha = .75, time = transitionTime} )
+				if cellID <= gameData.totalLevels then
+					transition.to( gridObjects.cell, { alpha = .75, time = transitionTime} )
+					if gridObjects.cellText ~= nil then
+						sceneGroup:insert( gridObjects.cellText )
+						grid:insert( gridObjects.cellText )
+						transition.to( gridObjects.cellText, { alpha = .75, time = transitionTime} )
+					end
 				end
 				rowX  = rowX + cellSize
 				cellID = cellID + 1

@@ -1,21 +1,26 @@
--- before compiling for itunes change maxLevel = 1, and changing opening scene to studio
-
-
-
 display.setStatusBar( display.HiddenStatusBar )
+native.setProperty( "androidSystemUiVisibility" , "immersiveSticky" )
+
 local composer = require("composer")
 local gameData = require( "gameData" )
 local loadsave = require("loadsave")
 local json = require("json")
 local settings = loadsave.loadTable( "settings.json" )
+--admob = require( "plugin.admob" )
+
+local platform = system.getInfo("platform")
+local adNetworkTesting = false
+
 
 if audio.supportsSessionProperty == true then
 	audio.setSessionProperty(audio.MixMode, audio.AmbientMixMode)
 end
 
 if settings == nil then
+	gameData.adNetworkTesting = adNetworkTesting
+	gameData.platform = platform
 	gameData.totalLevels = 44
-	gameData.version = 1.5
+	gameData.version = 1.9
 	gameData.level = 1
 	gameData.timeStamp = os.date("!%c")
 	gameData.language = "EN"
@@ -24,8 +29,14 @@ if settings == nil then
 	gameData.fontName = "HelveticaNeue-Thin"
 	gameData.fontNameCounter = "HelveticaNeue"
 	gameData.sound = true
+	gameData.admobAppIDIOS = "ca-app-pub-8719902132937590~6631569468"
+	gameData.admobBannerIDIOS = "ca-app-pub-8719902132937590/9811441723"
+	gameData.admobAppIDAndroid = "ca-app-pub-8719902132937590~2729876671"
+	gameData.admobBannerIDAndroid = "ca-app-pub-8719902132937590/2697693876"
 	loadsave.saveTable( gameData, "settings.json" )
 else
+	gameData.adNetworkTesting = adNetworkTesting
+	gameData.platform = platform
 	gameData.totalLevels = 44
 	gameData.version = settings.version
 	gameData.level = settings.level
@@ -36,6 +47,10 @@ else
 	gameData.appODealAppKey = settings.appODealAppKey
 	gameData.appODealTesting = settings.appODealTesting
 	gameData.adDisplayInterval = settings.adDisplayInterval
+	gameData.admobAppIDIOS = "ca-app-pub-8719902132937590~6631569468"
+	gameData.admobBannerIDIOS = "ca-app-pub-8719902132937590/9811441723"
+	gameData.admobAppIDAndroid = "ca-app-pub-8719902132937590~2729876671"
+	gameData.admobBannerIDAndroid = "ca-app-pub-8719902132937590/2697693876"
 	gameData.fontName = settings.fontName
 	gameData.fontNameCounter = settings.fontNameCounter
 	gameData.sound = settings.sound
@@ -148,9 +163,34 @@ function pressKey( event )
 	end
 end
 
+function adListener(event)
+	print("admob init", event.phase)
+	if (event.phase == "init" or event.phase == "closed") then
+		print("admob provider", event.provider)
+		local adNetworkUnitID = gameData.admobBannerIDIOS
+		if system.getInfo("platform") == "android" then
+			adNetworkUnitID = gameData.admobBannerIDAndroid
+		end
+		if gameData.adNetworkTesting == true then
+			adNetworkUnitID = "ca-app-pub-3940256099942544/1033173712"
+		end
+		print("admob unit", adNetworkUnitID)
+		admob.load( "interstitial", { adUnitId = adNetworkUnitID } )
+	end
+end
+
+local testing = gameData.adNetworkTesting
+local adNetworkAppID = gameData.admobAppIDIOS
+if system.getInfo("platform") == "android" then
+	adNetworkAppID = gameData.admobAppIDAndroid
+end
+-- print( "admob appID", adNetworkAppID )
+-- admob.init( adListener, { testMode = testing, appId = adNetworkAppID })
+
+
 local display_stage = display.getCurrentStage()
 display_stage:insert( base )
 display_stage:insert( composer.stage )
 
---composer.gotoScene("studio")
-composer.gotoScene("game")
+composer.gotoScene("studio")
+--composer.gotoScene("game")

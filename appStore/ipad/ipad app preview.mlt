@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mlt LC_NUMERIC="C" version="6.21.0" title="Shotcut version 20.07.11" producer="main_bin">
+  <profile description="automatic" width="1600" height="1200" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="1600" display_aspect_den="1200" frame_rate_num="270540000" frame_rate_den="4575829" colorspace="709"/>
+  <playlist id="main_bin">
+    <property name="xml_retain">1</property>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:00:28.736">
+    <property name="length">00:00:28.753</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Library/Application Support/Meltytech/Shotcut/autosave/0</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="mlt_image_format">rgb24a</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:00:28.736"/>
+  </playlist>
+  <producer id="producer0" in="00:00:00.000" out="00:01:16.169">
+    <property name="length">00:01:16.186</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Desktop/ipad.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T07:41:43</property>
+    <property name="shotcut:hash">e37457c6739f34af6219e1d6b58c3cb4</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">ipad.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter0" in="00:00:09.049" out="00:00:15.138">
+      <property name="argument">Draw lines to solve the puzzles</property>
+      <property name="geometry">00:00:00.000=-1600 0 1600 1200 1;00:00:00.981=0 0 1600 1200 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">90</property>
+      <property name="weight">570</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#0c4286</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">3</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.998</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">90</property>
+    </filter>
+  </producer>
+  <producer id="producer1" in="00:00:00.000" out="00:01:16.169">
+    <property name="length">00:01:16.186</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Desktop/ipad.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T07:41:43</property>
+    <property name="shotcut:hash">e37457c6739f34af6219e1d6b58c3cb4</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">ipad.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter1" in="00:00:31.240" out="00:00:47.375">
+      <property name="argument">How you solve them is up to you!</property>
+      <property name="geometry">00:00:00.000=-1600 0 1600 1200 1;00:00:00.981=0 0 1600 1200 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">90</property>
+      <property name="weight">750</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#0c4286</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">3</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.998</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">90</property>
+    </filter>
+  </producer>
+  <producer id="producer2" in="00:00:00.000" out="00:01:16.169">
+    <property name="length">00:01:16.186</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Desktop/ipad.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T07:41:43</property>
+    <property name="shotcut:hash">e37457c6739f34af6219e1d6b58c3cb4</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">ipad.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <playlist id="playlist0">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="producer0" in="00:00:09.049" out="00:00:15.138"/>
+    <entry producer="producer1" in="00:00:31.240" out="00:00:47.375"/>
+    <entry producer="producer2" in="00:00:47.392" out="00:00:53.870"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 20.07.11" global_feed="1" in="00:00:00.000" out="00:00:28.736">
+    <property name="shotcut">1</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">1</property>
+    <track producer="background"/>
+    <track producer="playlist0"/>
+    <transition id="transition0">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition1">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="version">0.9</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="disable">1</property>
+    </transition>
+  </tractor>
+</mlt>

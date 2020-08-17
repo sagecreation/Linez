@@ -4,7 +4,8 @@ local levelData = require("levels.level" .. gameData.level)
 local buildLevel = require("buildLevel")
 local physics = require("physics")
 
-print(gameData.level)
+
+
 
 physics.start()
 physics.setGravity(0, 10)
@@ -64,13 +65,13 @@ local changeBounceCounter
 local resetPlinks
 local buildPlinks
 local disposeHint
-local adListener
 local checkAdLoaded
 local checkObjectsAreMoving
 local sendStats
 local sendCallback
 
 -- variables
+local levelIsActive = false
 local gameIsActive = true
 local gravityChanging = false
 local startingGravity = "down"
@@ -116,10 +117,10 @@ function sendStats(gameStatus)
 	local deviceType = system.getInfo("architectureInfo")
 	local deviceName = system.getInfo("name")
 	--local URL = "https://linez.herokuapp.com/api/userData?credentials=01123581321345589&build=" .. gameData.version .. "&deviceID=" .. deviceID .. "&deviceType=" .. deviceType .. "&deviceName=" .. deviceName .. "&level=" .. gameData.level .. "&status=" .. gameStatus
-	local URL = "https://linez.herokuapp.com/api/userData?credentials=01123581321345589&build=" .. gameData.version .. "&deviceID=" .. deviceID .. "&deviceType=" .. deviceType .. "&deviceName=&level=" .. gameData.level .. "&status=" .. gameStatus
+	--local URL = "https://linez.herokuapp.com/api/userData?credentials=01123581321345589&build=" .. gameData.version .. "&deviceID=" .. deviceID .. "&deviceType=" .. deviceType .. "&deviceName=&level=" .. gameData.level .. "&status=" .. gameStatus
 	
-	print(URL)
-	network.request(URL, "GET", sendCallback)
+	--print(URL)
+	--network.request(URL, "GET", sendCallback)
 end
 
 function checkObjectsAreMoving()
@@ -138,11 +139,7 @@ function checkObjectsAreMoving()
 	end
 end
 
-function adListener(event)
-	if (event.phase == "init") then
-	-- Successful initialization
-	end
-end
+
 
 -- function checkAdLoaded()
 -- 	if appodeal.isLoaded("interstitial") == true then
@@ -180,36 +177,49 @@ function touchScreen(event)
 	local phase = event.phase
 	local target = event.target
 	local id = target.id
-
+	local valid = target.valid
+	local validY = 10
 	if hintVisible == true then
 		return
 	end
 
+
 	if event.phase == "began" then
 		display.getCurrentStage():setFocus(target)
 		target.isFocus = true
-		if id == "background" and levelCompleted == false and gameData.level > 1 then
-			local line = display.newLine(event.xStart, event.yStart, event.x, event.y)
-			lines[#lines + 1] = line
+		if id == "background" and levelCompleted == false and gameData.level > 1 and levelIsActive == false then
+			if event.y < validY then
+				target.valid = false
+			else
+				target.valid = true
+				local line = display.newLine(event.xStart, event.yStart, event.x, event.y)
+				lines[#lines + 1] = line
+			end
 		end
 	end
 	if event.phase == "moved" then
-		if id == "background" and levelCompleted == false and #lines > 0 then
+		if id == "background" and levelCompleted == false and #lines > 0 and valid == true and levelIsActive == false then
 			lines[#lines]:removeSelf()
-			local line = display.newLine(event.xStart, event.yStart, event.x, event.y)
-			line.strokeWidth = 7
-			if levelScale > 1 then
-				line.strokeWidth = 3.5
+			if event.y < validY then
+				target.valid = false
+				lines[#lines] = nil
+			else
+				local line = display.newLine(event.xStart, event.yStart, event.x, event.y)
+				line.strokeWidth = 7
+				if levelScale > 1 then
+					line.strokeWidth = 3.5
+				end
+				--line:setStrokeColor( 46 / 255, 75 / 255, 131 / 255, 1 )
+				--line:setStrokeColor( 74 / 255, 74 / 255, 74 / 255, 1 )
+				line:setStrokeColor(155 / 255, 155 / 255, 155 / 255)
+				line.alpha = 1
+				line.family = "line"
+				lines[#lines] = line
 			end
-			--line:setStrokeColor( 46 / 255, 75 / 255, 131 / 255, 1 )
-			--line:setStrokeColor( 74 / 255, 74 / 255, 74 / 255, 1 )
-			line:setStrokeColor(155 / 255, 155 / 255, 155 / 255)
-			line.alpha = 1
-			line.family = "line"
-			lines[#lines] = line
 		end
 	end
 	if event.phase == "ended" then
+		
 		display.getCurrentStage():setFocus(nil)
 		target.isFocus = false
 		if id == "playButton" then
@@ -218,6 +228,8 @@ function touchScreen(event)
 			headerObjects.playTouchArea:removeEventListener("touch", touchScreen)
 			transition.to(headerObjects.menuButton, {time = 50, alpha = .25, delay = 50})
 			headerObjects.menuTouchArea:removeEventListener("touch", touchScreen)
+			transition.to(headerObjects.resetButton, {time = 50, alpha = .25, delay = 50})
+			headerObjects.resetTouchArea:removeEventListener("touch", touchScreen)
 			playSound("lineCreate")
 			startLevel()
 		end
@@ -226,18 +238,30 @@ function touchScreen(event)
 			composer.gotoScene("menu")
 		end
 		if id == "menuButtonLarge" then
+			-- if ( admob.isLoaded( "interstitial" ) ) then
+			-- 	admob.hide()
+			-- 	print("admob hiding")
+			-- end
 			composer.gotoScene("menu")
 		end
 		if id == "playButtonLarge" then
+			-- if ( admob.isLoaded( "interstitial" ) ) then
+			-- 	admob.hide()
+			-- 	print("admob hiding")
+			-- end
 			if gameData.level < gameData.totalLevels then
 				gameData.level = gameData.level + 1
 			end
 			composer.gotoScene("resetGame")
 		end
 		if id == "resetButtonLarge" then
+			-- if ( admob.isLoaded( "interstitial" ) ) then
+			-- 	admob.hide()
+			-- 	print("admob hiding")
+			-- end
 			composer.gotoScene("resetGame")
 		end
-		if id == "background" and levelCompleted == false and #lines > 0 then
+		if id == "background" and levelCompleted == false and #lines > 0 and valid == true and levelIsActive == false then
 			local lineMinimum = 15
 			if levelScale > 1 then
 				lineMinimum = 9
@@ -389,6 +413,7 @@ function showCompletedStars()
 end
 
 function showCompleted()
+	gameData.attempts = gameData.attempts + 1
 	levelCompleted = true
 	timer.pause(gameTimer)
 	local time = 500
@@ -442,15 +467,24 @@ function showCompleted()
 
 	local time = 500
 	transition.to(headerObjects.menuButton, {y = display.screenOriginY - 100, time = time})
+	transition.to(headerObjects.resetButton, {y = display.screenOriginY - 100, time = time})
 	transition.to(headerObjects.playButton, {y = display.screenOriginY - 100, time = time})
 	transition.to(headerObjects.bounceCounter, {y = display.screenOriginY - 100, time = time})
 	transition.to(headerObjects.bounceCounterText, {y = display.screenOriginY - 100, time = time})
 	transition.to(headerObjects.menuTouchArea, {y = display.screenOriginY - 100, time = time})
+	transition.to(headerObjects.resetTouchArea, {y = display.screenOriginY - 100, time = time})
 	transition.to(headerObjects.playTouchArea, {y = display.screenOriginY - 100, time = time})
 	transition.to(headerObjects.divider, {y = display.screenOriginY - 100, time = time})
 	transition.to(title, {y = display.contentHeight / 5, time = 250})
 
 	resetPlinks(false)
+
+	-- print("admob loaded", admob.isLoaded( "interstitial" ))
+	-- if ( admob.isLoaded( "interstitial" ) and gameData.attempts >= 4 ) then
+	-- 	gameData.attempts = 0
+	-- 	admob.show( "interstitial" )
+	-- 	print("admob showing")
+	-- end
 
 	timer.performWithDelay(500, showCompletedStars)
 end
@@ -743,7 +777,8 @@ function resetBreakoutLines()
 end
 
 function resetLevel()
-	gameData.attempts = gameData.attempts + 1
+	levelIsActive = false
+	--gameData.attempts = gameData.attempts + 1
 	currentBounceCount = levelBounceCount
 	gravityChanging = false
 	if startingGravity == "down" then
@@ -781,6 +816,8 @@ function resetLevel()
 			headerObjects.playTouchArea:addEventListener("touch", touchScreen)
 			headerObjects.menuButton.alpha = 1
 			headerObjects.menuTouchArea:addEventListener("touch", touchScreen)
+			headerObjects.resetButton.alpha = 1
+			headerObjects.resetTouchArea:addEventListener("touch", touchScreen)
 		end
 	)
 	timer.performWithDelay(
@@ -804,6 +841,7 @@ function startLevel()
 	sendStats("newGame")
 	startStopPhysics("start")
 	applyTorque()
+	levelIsActive = true
 	timer.resume(gameTimer)
 end
 
@@ -1055,6 +1093,7 @@ function scene:create(event)
 			end
 		)
 	end
+	
 	gameTimer = timer.performWithDelay(3000, checkObjectsAreMoving, -1)
 	timer.pause(gameTimer)
 end
