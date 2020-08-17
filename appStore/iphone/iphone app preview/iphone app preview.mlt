@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mlt LC_NUMERIC="C" version="6.21.0" title="Shotcut version 20.07.11" producer="main_bin">
+  <profile description="automatic" width="1920" height="888" progressive="1" sample_aspect_num="1" sample_aspect_den="1" display_aspect_num="1920" display_aspect_den="888" frame_rate_num="1510000" frame_rate_den="25157" colorspace="709"/>
+  <playlist id="main_bin">
+    <property name="xml_retain">1</property>
+  </playlist>
+  <producer id="black" in="00:00:00.000" out="00:00:16.377">
+    <property name="length">00:00:16.394</property>
+    <property name="eof">pause</property>
+    <property name="resource">0</property>
+    <property name="aspect_ratio">1</property>
+    <property name="mlt_service">color</property>
+    <property name="mlt_image_format">rgb24a</property>
+    <property name="set.test_audio">0</property>
+  </producer>
+  <playlist id="background">
+    <entry producer="black" in="00:00:00.000" out="00:00:16.377"/>
+  </playlist>
+  <producer id="producer0" in="00:00:00.000" out="00:00:17.593">
+    <property name="length">00:00:17.610</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Dropbox/projects/Linez/appStore/iphone/preview iphone.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T06:40:47</property>
+    <property name="shotcut:hash">424686269f590d68cf5e99ac996e8f0e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">preview iphone.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter0" in="00:00:01.216" out="00:00:06.581">
+      <property name="argument">Draw lines
+to bounce the ball
+into the hole</property>
+      <property name="geometry">50 110 700 444 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">150</property>
+      <property name="weight">750</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#0c4286</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">6</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">150</property>
+    </filter>
+    <filter id="filter1" in="00:00:01.216" out="00:00:06.581">
+      <property name="argument">#timecode#</property>
+      <property name="geometry">0 0 1920 888 1</property>
+      <property name="family">Sans</property>
+      <property name="size">888</property>
+      <property name="weight">500</property>
+      <property name="style">normal</property>
+      <property name="fgcolour">#ffffffff</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">center</property>
+      <property name="valign">bottom</property>
+      <property name="outline">3</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">0</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="disable">1</property>
+    </filter>
+  </producer>
+  <producer id="producer1" in="00:00:00.000" out="00:00:17.593">
+    <property name="length">00:00:17.610</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Dropbox/projects/Linez/appStore/iphone/preview iphone.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T06:40:47</property>
+    <property name="shotcut:hash">424686269f590d68cf5e99ac996e8f0e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">preview iphone.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter2" in="00:00:06.597" out="00:00:10.779">
+      <property name="argument">Draw lines
+to bounce the ball
+into the hole</property>
+      <property name="geometry">50 110 700 444 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">150</property>
+      <property name="weight">750</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#0c4286</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">6</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">150</property>
+    </filter>
+    <filter id="filter3" in="00:00:06.597" out="00:00:10.779">
+      <property name="argument">How you do it
+is up to you!</property>
+      <property name="geometry">1275 500 600 444 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">120</property>
+      <property name="weight">750</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#00418f</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">6</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">120</property>
+      <property name="disable">1</property>
+    </filter>
+  </producer>
+  <producer id="producer2" in="00:00:00.000" out="00:00:17.593">
+    <property name="length">00:00:17.610</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Dropbox/projects/Linez/appStore/iphone/preview iphone.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T06:40:47</property>
+    <property name="shotcut:hash">424686269f590d68cf5e99ac996e8f0e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">preview iphone.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+    <filter id="filter4" in="00:00:10.796" out="00:00:12.445">
+      <property name="argument">Draw lines
+to bounce the ball
+into the hole</property>
+      <property name="geometry">50 110 700 444 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">150</property>
+      <property name="weight">750</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#0c4286</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">6</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">150</property>
+    </filter>
+    <filter id="filter5" in="00:00:10.796" out="00:00:12.445">
+      <property name="argument">How you do it
+is up to you!</property>
+      <property name="geometry">1275 500 600 444 1</property>
+      <property name="family">Helvetica Neue</property>
+      <property name="size">120</property>
+      <property name="weight">750</property>
+      <property name="style">italic</property>
+      <property name="fgcolour">#00418f</property>
+      <property name="bgcolour">#00000000</property>
+      <property name="olcolour">#aa000000</property>
+      <property name="pad">0</property>
+      <property name="halign">left</property>
+      <property name="valign">top</property>
+      <property name="outline">6</property>
+      <property name="mlt_service">dynamictext</property>
+      <property name="shotcut:filter">dynamicText</property>
+      <property name="shotcut:usePointSize">1</property>
+      <property name="shotcut:animIn">00:00:00.000</property>
+      <property name="shotcut:animOut">00:00:00.000</property>
+      <property name="shotcut:pointSize">120</property>
+    </filter>
+  </producer>
+  <producer id="producer3" in="00:00:00.000" out="00:00:17.593">
+    <property name="length">00:00:17.610</property>
+    <property name="eof">pause</property>
+    <property name="resource">/Users/pepper/Dropbox/projects/Linez/appStore/iphone/preview iphone.mov</property>
+    <property name="audio_index">0</property>
+    <property name="video_index">1</property>
+    <property name="mute_on_pause">0</property>
+    <property name="mlt_service">avformat-novalidate</property>
+    <property name="seekable">1</property>
+    <property name="aspect_ratio">1</property>
+    <property name="creation_time">2020-08-10T06:40:47</property>
+    <property name="shotcut:hash">424686269f590d68cf5e99ac996e8f0e</property>
+    <property name="ignore_points">0</property>
+    <property name="shotcut:caption">preview iphone.mov</property>
+    <property name="shotcut:skipConvert">1</property>
+    <property name="global_feed">1</property>
+    <property name="xml">was here</property>
+  </producer>
+  <playlist id="playlist0">
+    <property name="shotcut:video">1</property>
+    <property name="shotcut:name">V1</property>
+    <entry producer="producer0" in="00:00:01.216" out="00:00:06.581"/>
+    <entry producer="producer1" in="00:00:06.597" out="00:00:10.779"/>
+    <entry producer="producer2" in="00:00:10.796" out="00:00:12.445"/>
+    <entry producer="producer3" in="00:00:12.462" out="00:00:17.593"/>
+  </playlist>
+  <tractor id="tractor0" title="Shotcut version 20.07.11" global_feed="1" in="00:00:00.000" out="00:00:16.377">
+    <property name="shotcut">1</property>
+    <property name="shotcut:projectAudioChannels">2</property>
+    <property name="shotcut:projectFolder">1</property>
+    <property name="shotcut:scaleFactor">0.679922</property>
+    <property name="shotcut:trackHeight">30</property>
+    <track producer="background"/>
+    <track producer="playlist0"/>
+    <transition id="transition0">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="mlt_service">mix</property>
+      <property name="always_active">1</property>
+      <property name="sum">1</property>
+    </transition>
+    <transition id="transition1">
+      <property name="a_track">0</property>
+      <property name="b_track">1</property>
+      <property name="version">0.9</property>
+      <property name="mlt_service">frei0r.cairoblend</property>
+      <property name="disable">1</property>
+    </transition>
+  </tractor>
+</mlt>

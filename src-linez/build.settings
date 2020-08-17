@@ -24,6 +24,13 @@ settings =
 	--
 	android =
 	{
+		applicationChildElements =
+        {
+            [[
+                <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+                    android:value="ca-app-pub-8719902132937590~2729876671"/>  -- replace with your app id. See: https://goo.gl/fQ2neu
+            ]],
+        },
 		usesPermissions =
 		{
 			"android.permission.INTERNET",
@@ -46,6 +53,7 @@ settings =
       		NSAppTransportSecurity = {
 				NSAllowsArbitraryLoads=true
 			},
+			GADApplicationIdentifier = "ca-app-pub-8719902132937590~6631569468",
 		},
 	},
 

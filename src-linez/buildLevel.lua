@@ -55,6 +55,7 @@ function class.buildBackGround( backgroundData )
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
 	background.id = "background"
+	background.valid = true
 	return background
 
 end
@@ -68,9 +69,15 @@ function class.buildHeader( starData )
 	menuButton.anchorX = 0
 	menuButton.anchorY = 0
 
+	local resetButton = display.newImage( "images/game/reset.png", display.screenOriginX + 100, display.screenOriginY + 20 )
+	resetButton.anchorX = 0
+	resetButton.anchorY = 0
+
 	local playButton = display.newImage( "images/game/play" .. imageColor .. ".png", display.contentWidth + ( display.screenOriginX * -1 ) - 30, display.screenOriginY + 20 )
 	playButton.anchorX = 1
 	playButton.anchorY = 0
+
+	
 
 	local bounceCounter = display.newText( bounceCountParameters )
 	bounceCounter.text = starData.count
@@ -91,23 +98,31 @@ function class.buildHeader( starData )
 	divider.y = playButton.y + playButton.height + 20
 	divider.fill = objectColor
 
-	local menuTouchArea = display.newRect( display.screenOriginX, display.screenOriginY, 90, 90 )
+	local menuTouchArea = display.newRect( display.screenOriginX, display.screenOriginY, 90, 80 )
 	menuTouchArea.anchorX = 0
 	menuTouchArea.anchorY = 0
 	menuTouchArea.alpha = 0
 	menuTouchArea.isHitTestable = true
 	menuTouchArea.id = "menuButton"
-	menuTouchArea:setFillColor( 255, 255, 255 )
+	menuTouchArea:setFillColor( 0, 0, 0 )
 
-	local playTouchArea = display.newRect( display.contentWidth + ( display.screenOriginX * -1 ), display.screenOriginY, 90, 90 )
+	local resetTouchArea = display.newRect( display.screenOriginX + 90, display.screenOriginY, 90, 80 )
+	resetTouchArea.anchorX = 0
+	resetTouchArea.anchorY = 0
+	resetTouchArea.alpha = 0
+	resetTouchArea.isHitTestable = true
+	resetTouchArea.id = "clearAllLinez"
+	resetTouchArea:setFillColor( 0, 0, 0 )
+
+	local playTouchArea = display.newRect( display.contentWidth + ( display.screenOriginX * -1 ), display.screenOriginY, 150, 80 )
 	playTouchArea.anchorX = 1
 	playTouchArea.anchorY = 0
 	playTouchArea.alpha = 0
 	playTouchArea.isHitTestable = true
 	playTouchArea.id = "playButton"
-	playTouchArea:setFillColor( 255, 255, 255 )
+	playTouchArea:setFillColor( 0, 0, 0 )
 
-	local headerTable = { menuButton = menuButton, playButton = playButton, heaerCenter = heaerCenter, bounceCounter = bounceCounter, bounceCounterText = bounceCounterText, menuTouchArea = menuTouchArea, playTouchArea = playTouchArea, divider = divider }
+	local headerTable = { menuButton = menuButton, playButton = playButton, resetButton = resetButton, heaerCenter = heaerCenter, bounceCounter = bounceCounter, bounceCounterText = bounceCounterText, menuTouchArea = menuTouchArea, playTouchArea = playTouchArea, resetTouchArea = resetTouchArea, divider = divider }
 	return headerTable
 end
 
@@ -191,23 +206,23 @@ function class.buildCompletionObjects()
 	local congratulationsText = display.newImage( "images/game/accolade" .. accoladeID .. ".png", 0, 0 )
 	congratulationsText.anchorY = 1
 	congratulationsText.x = display.contentCenterX
-	congratulationsText.y = display.contentCenterY - 50
+	congratulationsText.y = display.contentCenterY - 100
 	congratulationsText.alpha = 0
 
-	local playButtonLarge = display.newImage( "images/game/nextLarge.png", display.contentCenterX, display.contentCenterY + 25 )
+	local playButtonLarge = display.newImage( "images/game/nextLarge.png", display.contentCenterX, display.contentCenterY - 25 )
 	playButtonLarge.anchorY = 0
 	playButtonLarge.id = "playButtonLarge"
 	playButtonLarge.type = "button"
 	playButtonLarge.alpha = 0
 
-	local menuButtonLarge = display.newImage( "images/game/menuLarge.png", display.contentCenterX - 350, display.contentCenterY + 25 )
+	local menuButtonLarge = display.newImage( "images/game/menuLarge.png", display.contentCenterX - 350, display.contentCenterY - 25 )
 	menuButtonLarge.anchorX = 0
 	menuButtonLarge.anchorY = 0
 	menuButtonLarge.id = "menuButtonLarge"
 	menuButtonLarge.type = "button"
 	menuButtonLarge.alpha = 0
 
-	local resetButtonLarge = display.newImage( "images/game/retryLarge.png", display.contentCenterX + 350, display.contentCenterY + 25 )
+	local resetButtonLarge = display.newImage( "images/game/retryLarge.png", display.contentCenterX + 350, display.contentCenterY - 25 )
 	resetButtonLarge.anchorX = 1
 	resetButtonLarge.anchorY = 0
 	resetButtonLarge.id = "resetButtonLarge"
@@ -500,15 +515,14 @@ function class.buildInfoButton()
 end
 
 function class.buildInfo()
-	local thankYou = display.newImage( "images/info/thankYou.png", display.contentCenterX, 150 )
-	local review = display.newImage( "images/info/review.png", display.contentCenterX, 250 )
-	local gameDesign = display.newImage( "images/info/gameDesign.png", display.contentCenterX, 375 )
-	local specialThanks = display.newImage( "images/info/specialThanks.png", display.contentCenterX, 520 )
+	local gameDesign = display.newImage( "images/info/gameDesign.png", display.contentCenterX, 200 )
+	local music = display.newImage( "images/info/music.png", display.contentCenterX, 300 )
+	local specialThanks = display.newImage( "images/info/specialThanks.png", display.contentCenterX, 450 )
 	local menuButton = display.newImage( "images/game/menuBlue.png", display.screenOriginX + 20, display.screenOriginY + 20 )
 	menuButton.anchorX = 0
 	menuButton.anchorY = 0
 
-	local info = { thankYou = thankYou, review = review, gameDesign = gameDesign, specialThanks = specialThanks, menuButton = menuButton }
+	local info = { gameDesign = gameDesign, music = music, specialThanks = specialThanks, menuButton = menuButton }
 	return info
 end
 

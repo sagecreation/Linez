@@ -37,9 +37,8 @@ function scene:create( event )
 	local info = buildLevel.buildInfo()
 	info.menuButton:addEventListener( "tap", changeScene )
 	sceneGroup:insert( info.menuButton )
-	sceneGroup:insert( info.thankYou )
-	sceneGroup:insert( info.review )
 	sceneGroup:insert( info.gameDesign )
+	sceneGroup:insert( info.music )
 	sceneGroup:insert( info.specialThanks )
 
 end
